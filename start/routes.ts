@@ -24,4 +24,8 @@ Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
+Route.get('/about-me', async ({ view }) => {
+  return view.render('about_me')
+})
+
 Route.resource('/graphics', 'GraphicsController')
