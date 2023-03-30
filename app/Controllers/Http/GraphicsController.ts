@@ -8,6 +8,24 @@ import DataCollection from 'App/Models/Mongo/DataCollection'
 export default class GraphicsController {
   public async index({ }: HttpContextContract) { }
 
+  public async gr2({ }: HttpContextContract) {
+    const dtrue = await DataCollection.find({ NumPreg: "True" }).count()
+    const dfalse = await DataCollection.find({ NumPreg: "False" }).count()
+
+    const info = [
+      {
+        estado: 'True',
+        count: dtrue
+      },
+      {
+        estado: 'False',
+        count: dfalse
+      }
+    ]
+
+    return View.render('graphic2', { info })
+  }
+
   public async create({ }: HttpContextContract) {
 
     const enero = await DataCollection.find({ Date: { $gte : '2019-01-01' , $lte : '2019-01-31'} }).count()
