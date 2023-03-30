@@ -26,6 +26,30 @@ export default class GraphicsController {
     return View.render('graphic2', { info })
   }
 
+  public async gr3({}: HttpContextContract) {
+    
+    const dts = await DataCollection.aggregate([ {"$group" : {_id:"$FarmLoc", count:{$sum:1}}} ])
+
+    return View.render('graphic3', { dts }) 
+  }
+
+  public async gr4({}: HttpContextContract) {
+    
+    const dts = await DataCollection.aggregate([ {"$group" : {_id:"$BredREas", count:{$sum:1}}} ])
+
+    console.log(dts)
+    return View.render('graphic4', { dts }) }
+
+  public async gr5({}: HttpContextContract) { return View.render('graphic5') }
+
+  public async gr6({}: HttpContextContract) { return View.render('graphic6') }
+
+  public async gr7({}: HttpContextContract) { return View.render('graphic7') }
+  
+  public async gr8({}: HttpContextContract) { return View.render('graphic8') }
+
+  public async gr9({}: HttpContextContract) { return View.render('graphic9') }
+
   public async create({ }: HttpContextContract) {
 
     const enero = await DataCollection.find({ Date: { $gte : '2019-01-01' , $lte : '2019-01-31'} }).count()
