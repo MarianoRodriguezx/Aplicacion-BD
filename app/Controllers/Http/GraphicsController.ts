@@ -63,11 +63,23 @@ export default class GraphicsController {
     
     const dts = await DataCollection.aggregate([ {"$group" : {_id:"$Evsirebreed", count:{$sum:1}}}, { $sort: { "Evsirebreed": 1 } } ])
 
-    console.log(dts)
+    //console.log(dts)
 
     return View.render('graphic8', { dts }) }
 
-  public async gr9({}: HttpContextContract) { return View.render('graphic9') }
+  public async gr9({}: HttpContextContract) { 
+    
+    const dts = await DataCollection.aggregate([ {"$group" : {_id:"$BarnNm", count:{$sum:1}}}, { $sort: { "Evsirebreed": 1 } } ])
+
+    //console.log(dts)
+    return View.render('graphic9', { dts }) }
+
+  public async gr10({}: HttpContextContract) {
+    const dts = await DataCollection.aggregate([ {"$group" : {_id:"$ConcepRate", count:{$sum:1}} } ])
+
+    console.log(dts)
+    return View.render('graphic10', { dts })
+  }
 
   public async create({ }: HttpContextContract) {
 
