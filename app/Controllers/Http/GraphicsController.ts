@@ -37,16 +37,35 @@ export default class GraphicsController {
     
     const dts = await DataCollection.aggregate([ {"$group" : {_id:"$BredREas", count:{$sum:1}}} ])
 
-    console.log(dts)
+    //console.log(dts)
     return View.render('graphic4', { dts }) }
 
-  public async gr5({}: HttpContextContract) { return View.render('graphic5') }
+  public async gr5({}: HttpContextContract) { 
+    const dts = await DataCollection.aggregate([ {"$group" : {_id:"$Brd", count:{$sum:1}}} ])
 
-  public async gr6({}: HttpContextContract) { return View.render('graphic6') }
+    return View.render('graphic5', { dts }) 
+   }
 
-  public async gr7({}: HttpContextContract) { return View.render('graphic7') }
+  public async gr6({}: HttpContextContract) { 
+    const dts = await DataCollection.aggregate([ {"$group" : {_id:"$Tech", count:{$sum:1}}} ])
+
+    return View.render('graphic6', { dts }) 
+   }
+
+  public async gr7({}: HttpContextContract) {
+    
+    const dts = await DataCollection.aggregate([ {"$group" : {_id:"$Evweek", count:{$sum:1}}}, { $sort: { "Evweek": 1 } } ])
+
+    return View.render('graphic7', { dts }) 
+  }
   
-  public async gr8({}: HttpContextContract) { return View.render('graphic8') }
+  public async gr8({}: HttpContextContract) { 
+    
+    const dts = await DataCollection.aggregate([ {"$group" : {_id:"$Evsirebreed", count:{$sum:1}}}, { $sort: { "Evsirebreed": 1 } } ])
+
+    console.log(dts)
+
+    return View.render('graphic8', { dts }) }
 
   public async gr9({}: HttpContextContract) { return View.render('graphic9') }
 
