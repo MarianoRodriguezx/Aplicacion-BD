@@ -16,16 +16,17 @@
 
     @include('partials/navbar')
 
-  <br>
-  <h1 class="text-center">Num Preg</h1> <br>
-
-  <canvas class="grac" id="myChart"></canvas> <br><br>
+    @!component('components/graphic-line', {
+      clase: 'grac',
+      identificador: 'myChart',
+      titulo: 'Brd'
+    })
 
   <table class="table table-dark table-hover text-center tb">
     <thead>
       <tr>
-        <th scope="col">Estado</th>
-        <th scope="col">Numero de Estados Totales</th>
+        <th scope="col">Brd</th>
+        <th scope="col">Conteo de Registros</th>
       </tr>
     </thead>
     <tbody>

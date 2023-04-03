@@ -16,10 +16,11 @@
 
     @include('partials/navbar')
 
-    <br>
-    <h1 class="text-center">Tech</h1> <br>
-
-    <canvas class="grap" id="myChart"></canvas> <br><br>
+    @!component('components/graphic-line', {
+      clase: 'grap',
+      identificador: 'myChart',
+      titulo: 'Tech'
+    })
 
     <table class="table table-dark table-hover text-center tb">
         <thead>

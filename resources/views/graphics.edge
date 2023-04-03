@@ -15,10 +15,11 @@
 <body>
   @include('partials/navbar')
 
-  <br>
-  <h1 class="text-center">Movimientos realizados por Mes</h1> <br>
-
-  <canvas class="grap" id="myChart"></canvas> <br><br>
+  @!component('components/graphic-line', {
+    clase: 'grap',
+    identificador: 'myChart',
+    titulo: 'Movimientos realizados por Mes'
+})
 
   <table class="table table-dark table-hover text-center tb">
     <thead>
