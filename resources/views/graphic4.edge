@@ -2,25 +2,25 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <title>Grafica 4</title>
-    @entryPointStyles('app')
-    @entryPointScripts('app')
+  <title>Grafica 4</title>
+  @entryPointStyles('app')
+  @entryPointScripts('app')
 </head>
 
 <body>
 
-    @include('partials/navbar')
+  @include('partials/navbar')
 
-    @!component('components/graphic-line', {
-      clase: 'grap',
-      identificador: 'myChart',
-      titulo: 'BredREas'
-    })
+  @!component('components/graphic-line', {
+  clase: 'grap',
+  identificador: 'myChart',
+  titulo: 'BredREas'
+  })
 
   <table class="table table-dark table-hover text-center tb">
     <thead>
@@ -30,22 +30,22 @@
       </tr>
     </thead>
     <tbody>
-      @each(item in dts) 
+      @each(item in dts)
       <tr>
         <td>{{item._id}}</td>
         <td>{{item.count}}</td>
       </tr>
-      @end 
+      @end
     </tbody>
   </table><br>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+  </script>
 
-    <script>
-        const ctx = document.getElementById('myChart');
+  <script>
+    const ctx = document.getElementById('myChart');
           
             new Chart(ctx, {
               type: 'bar',
@@ -86,11 +86,11 @@
               },
               options: {scales: {
                 y: {
-                        beginAtZero: true
+                      beginAtZero: true
                     }
                 } }
             });
-    </script>
+  </script>
 </body>
 
 </html>

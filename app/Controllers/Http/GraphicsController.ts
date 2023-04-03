@@ -29,8 +29,9 @@ export default class GraphicsController {
   public async gr3({}: HttpContextContract) {
     
     const dts = await DataCollection.aggregate([ {"$group" : {_id:"$FarmLoc", count:{$sum:1}}} ])
+    const settings = { titulo: 'Movimientos Por Locaciones de Farmacias', clase: 'grap', tipo: 'bar'}
 
-    return View.render('graphic3', { dts }) 
+    return View.render('graphic3', { dts, settings }) 
   }
 
   public async gr4({}: HttpContextContract) {
